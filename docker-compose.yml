@@ -41,6 +41,7 @@ services:
       # Services
       - "traefik.http.routers.traefik.service=api@internal"
       - "traefik.http.routers.traefik-websecure.service=api@internal"
+
   engagement:
     build:
       context: ./
@@ -80,8 +81,6 @@ services:
       options:
         max-file: "10"
         max-size: "200m"
-    links:
-      - nginx
 
 # Docker Networks
 networks:
