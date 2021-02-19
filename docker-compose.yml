@@ -9,8 +9,7 @@ services:
       - 443:443
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ./traefik/dev_traefik.yml:/etc/traefik/traefik.yml:ro
-      - ./traefik/dev_config.yml:/etc/traefik/config.yml:ro
+      - ./traefik/traefik.yml:/etc/traefik/traefik.yml:ro
       - ./traefik/traefik:/opt/traefik
       - ./certs:/etc/certs:ro
     networks:
