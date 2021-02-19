@@ -4,9 +4,9 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'kp-engagement',
+    title: 'Kanokthip and Panupong ~ Engagement Invitation <3',
     htmlAttrs: {
-      lang: 'en',
+      lang: 'th',
     },
     meta: [
       { charset: 'utf-8' },
@@ -20,13 +20,15 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [{ src: '@/plugins/full-page', mode: 'client' }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    '@nuxtjs/dotenv',
+
     // https://go.nuxtjs.dev/eslint
     // '@nuxtjs/eslint-module',
   ],
