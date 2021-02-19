@@ -1,0 +1,36 @@
+version: "3.2"
+services:
+  web:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    container_name: web
+    restart: always
+    environment:
+      SERVER_PORT: 3000
+      SERVER_HOST: "0.0.0.0"
+    expose:
+      - "3000"
+    command: "yarn start"
+    depends_on:
+      - traefik
+    networks:
+      - web
+      - internal
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "10"
+        max-size: "200m"
+    links:
+      - nginx
+
+# Docker Networks
+networks:
+  internal:
+  web:
+    external: true
+
+# Volumes
+volumes:
+  file-data:
