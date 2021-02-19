@@ -11,9 +11,13 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'ขอเรียนเชิญร่วมงานหมั้น ระหว่างน้ำ และกอล์ฟ',
+      },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.svg' }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css

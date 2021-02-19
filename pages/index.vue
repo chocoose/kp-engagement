@@ -17,14 +17,19 @@
             class="icon icon--married"
           />
           <h1>ขอเรียนเชิญเป็นเกียรติในพิธีหมั้น</h1>
-          <h2>ระหว่าง</h2>
-          <h2>นางสาวกนกทิพย์ ตะเคียนศก</h2>
+          <h2 class="between">ระหว่าง</h2>
+          <h2 class="name">นางสาวกนกทิพย์ ตะเคียนศก</h2>
           <img
             src="~/assets/icon/wedding-ring.svg"
             alt="wedding ring icon"
             class="icon icon--wedding-ring"
           />
-          <h2>นายภาณุพงศ์ เหลืองปทุม</h2>
+          <h2 class="name">นายภาณุพงศ์ เหลืองปทุม</h2>
+
+          <div class="event-theme">
+            ธีมงานสีโรสโกลด์ (Rose Gold)
+            <div class="rose-gold-color"></div>
+          </div>
         </div>
       </div>
       <div class="section section--two">
@@ -305,5 +310,32 @@ h3 {
       }
     }
   }
+}
+
+.between {
+  border-bottom: 1px dotted #b76e79;
+  padding: 0 20px 10px;
+  margin-bottom: 10px;
+}
+
+.name {
+  font-size: 24px;
+}
+.event-theme {
+  margin-top: 20px;
+  border-top: 1px dotted #b76e79;
+  padding: 5px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.rose-gold-color {
+  background-color: #b76e79;
+  width: 16px;
+  height: 16px;
+  border-radius: 16px;
+  margin-left: 10px;
 }
 </style>
