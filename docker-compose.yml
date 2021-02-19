@@ -1,10 +1,51 @@
 version: "3.2"
 services:
-  web:
+  traefik:
+    image: traefik:2.3
+    container_name: traefik
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./traefik/dev_traefik.yml:/etc/traefik/traefik.yml:ro
+      - ./traefik/dev_config.yml:/etc/traefik/config.yml:ro
+      - ./traefik/traefik:/opt/traefik
+      - ./certs:/etc/certs:ro
+    networks:
+      - web
+      - internal
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "10"
+        max-size: "200m"
+    labels:
+      - "traefik.enable=true"
+
+      # Routers
+      - "traefik.http.routers.traefik-web.rule=Host(`${HOST_TRAEFIK}`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))"
+      - "traefik.http.routers.traefik-web.entrypoints=web"
+      - "traefik.http.routers.traefik-web.middlewares=traefik-redirect-websecure@docker"
+
+      - "traefik.http.routers.traefik-websecure.rule=Host(`${HOST_TRAEFIK}`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))"
+      - "traefik.http.routers.traefik-websecure.tls=true"
+      - "traefik.http.routers.traefik-websecure.entrypoints=websecure"
+      - "traefik.http.routers.traefik-websecure.middlewares=dashboard-auth@docker"
+
+      # Middlewares
+      - "traefik.http.middlewares.traefik-redirect-websecure.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.dashboard-auth.basicauth.users=${TRAEFIK_USER}"
+
+      # Services
+      - "traefik.http.routers.traefik.service=api@internal"
+      - "traefik.http.routers.traefik-websecure.service=api@internal"
+  engagement:
     build:
       context: ./
       dockerfile: ./Dockerfile
-    container_name: web
+    container_name: engagement
     restart: always
     environment:
       SERVER_PORT: 3000
@@ -14,6 +55,23 @@ services:
     command: "yarn start"
     depends_on:
       - traefik
+    labels:
+      - "traefik.enable=true"
+
+      # Routers
+      - "traefik.http.routers.engagement-web.rule=Host(`${HOST_ENGAGEMENT}`)"
+      - "traefik.http.routers.engagement-web.entrypoints=web"
+      - "traefik.http.routers.engagement-web.middlewares=engagement-redirect-websecure@docker"
+
+      - "traefik.http.routers.engagement-websecure.rule=Host(`${HOST_ENGAGEMENT}`)"
+      - "traefik.http.routers.engagement-websecure.tls=true"
+      - "traefik.http.routers.engagement-websecure.entrypoints=websecure"
+
+      # Middlewares
+      - "traefik.http.middlewares.engagement-redirect-websecure.redirectscheme.scheme=https"
+
+      # Services
+      - "traefik.http.services.engagement-websecure.loadbalancer.server.port=3000"
     networks:
       - web
       - internal
