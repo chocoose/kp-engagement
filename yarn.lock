@@ -8410,11 +8410,6 @@ vue-server-renderer@^2.6.12:
     serialize-javascript "^3.1.0"
     source-map "0.5.6"
 
-vue-static-map@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/vue-static-map/-/vue-static-map-3.0.2.tgz#7a3d651809d6a2e7a6f0b681d706d721ecf1fbbc"
-  integrity sha512-imNKDTd6Xe9UKSRD7xWTO+LHsl63WJHMmNJfXAlPjdpD9PJpyvhbcpoMcZi1v0UmG/t1tqtqWW5IqVMq9OZqcA==
-
 vue-style-loader@^4.1.0, vue-style-loader@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/vue-style-loader/-/vue-style-loader-4.1.2.tgz#dedf349806f25ceb4e64f3ad7c0a44fba735fcf8"

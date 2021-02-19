@@ -11,6 +11,9 @@ Photo by Karolina Grabowska from Pexels
 Section 3 Background:
 Photo by Jess Bailey Designs from Pexels
 
+Credit page:
+https://pixabay.com/photos/heart-window-rain-drip-love-5190672/
+
 Monk Bowl:
 <div>Icons made by <a href="https://www.flaticon.com/authors/surang" title="surang">surang</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 
@@ -24,4 +27,7 @@ Wedding Ring:
 <div>Icons made by <a href="https://www.flaticon.com/authors/pixelmeetup" title="Pixelmeetup">Pixelmeetup</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 
 Married:
+<div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
+Google Map Icon:
 <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
