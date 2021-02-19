@@ -144,7 +144,7 @@ h3 {
 }
 
 h1 {
-  font-size: 26px;
+  font-size: 24px;
 }
 
 h2 {
@@ -162,6 +162,7 @@ h3 {
 .section {
   position: relative;
   overflow: hidden;
+  text-align: center;
 
   &--home {
   }
@@ -288,18 +289,24 @@ h3 {
     z-index: 10;
 
     background-color: rgba(255, 255, 255, 0.5);
-    padding: 10px;
-    font-size: 18px;
+    padding: 5px;
+    font-size: 14px;
 
     display: flex;
     justify-content: center;
 
     a {
       display: flex;
-      margin: 5px 10px;
+      margin: 5px 0 5px 0;
+      padding: 5px 10px;
       text-decoration: none;
       color: #6b011f;
       transition: all 0.2s ease-in-out;
+      border-right: 1px dotted #b76e79;
+
+      &:last-child {
+        border: none;
+      }
 
       &:hover {
         color: #290149;
